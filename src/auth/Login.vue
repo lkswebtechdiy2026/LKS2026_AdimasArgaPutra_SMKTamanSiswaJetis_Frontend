@@ -21,7 +21,7 @@ const handleLogin = async () => {
     router.push('/dashboard')
   } catch (err) {
     console.log(err)
-    alert('Login gagal')
+    alert('Email atau Password Salah')
   }
 }
 </script>
@@ -30,6 +30,7 @@ const handleLogin = async () => {
   <div class="login-container">
     <div class="login-box">
       <h2>Login</h2>
+      <p>Silahkan Login Terlebih Dahulu</p>
 
       <form @submit.prevent="handleLogin">
         <div class="input-group">

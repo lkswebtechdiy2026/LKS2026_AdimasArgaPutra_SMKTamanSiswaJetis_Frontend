@@ -1,6 +1,14 @@
 <script setup>
-import { RouterView } from 'vue-router';
+import { ref, onMounted } from 'vue'
 
+const isLogin = ref(false)
+
+onMounted(() => {
+  const token = localStorage.getItem('token')
+  if (token) {
+    isLogin.value = true
+  }
+})
 </script>
 
 <template>
@@ -10,9 +18,9 @@ import { RouterView } from 'vue-router';
       <h1>UMKM</h1>
       <nav>
         <a href="#">Home</a>
-        <a href="#">Fitur</a>
         <a href="#">Tentang</a>
-        <router-link to="/login">Login</router-link>
+        <router-link v-if="!isLogin" to="/login">Login</router-link>
+        <router-link v-if="isLogin" to="/login">Dashboard</router-link>
       </nav>
     </header>
 

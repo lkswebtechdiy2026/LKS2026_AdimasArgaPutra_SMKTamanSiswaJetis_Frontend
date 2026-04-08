@@ -16,7 +16,8 @@ const register = async () => {
         password: password.value
     })
 
-    router.push('/')
+    router.push('/login')
+    alert('Register Berhasil!')
   } catch (err) {
     console.log(err)
     alert('Register gagal')
@@ -32,20 +33,20 @@ const register = async () => {
       <form @submit.prevent="register">
         <div class="input-group">
           <label>Nama</label>
-          <input type="text" v-model="name" placeholder="Nama" />
+          <input type="text" required v-model="name" placeholder="Nama" />
         </div>
 
         <div class="input-group">
           <label>Email</label>
-          <input type="email" v-model="email" placeholder="Email" />
+          <input type="email" required v-model="email" placeholder="Email" />
         </div>
 
         <div class="input-group">
           <label>Password</label>
-          <input type="password" v-model="password" placeholder="Password" />
+          <input type="password" required v-model="password" placeholder="Password (Minimal 8 kata)" />
         </div>
 
-        <button @click="register">Login</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   </div>
